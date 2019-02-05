@@ -3,11 +3,10 @@
 //Name -
 //Date -
 
-public class Line
+public class AvgLen
 {
-	public static double getSlope( int x1, int y1, int x2, int y2 )
+   public static double go( String a, String b )
 	{
 		return 0;
 	}
-
 }
