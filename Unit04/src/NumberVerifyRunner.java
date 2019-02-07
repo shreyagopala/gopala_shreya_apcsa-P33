@@ -21,6 +21,18 @@ public class NumberVerifyRunner
 		System.out.println(num +" is odd :: " + NumberVerify.isOdd(num));
 		System.out.println(num +" is even :: " + NumberVerify.isEven(num));
 		
-		//add in more test cases
+		
+		out.print("Enter a whole number :: ");
+	
+		System.out.println(num +" is odd :: " + NumberVerify.isOdd(num));
+		System.out.println(num +" is even :: " + NumberVerify.isEven(num));
+		
+
+		out.print("Enter a whole number :: ");
+			
+		System.out.println(num +" is odd :: " + NumberVerify.isOdd(num));
+		System.out.println(num +" is even :: " + NumberVerify.isEven(num));
+		
+		
 	}
 }
