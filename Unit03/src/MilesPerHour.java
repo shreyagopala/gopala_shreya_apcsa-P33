@@ -14,27 +14,34 @@ public class MilesPerHour
 {
 	private int distance, hours, minutes;
 	private double mph;
-
+//constructor
 	public MilesPerHour()
 	{
 		setNums(0,0,0);
 		mph=0.0;
 	}
-
+//constructor
 	public MilesPerHour(int dist, int hrs, int mins)
 	{
+		setNums(dist, hrs, mins);
+		mph = 0.0;
 	}
-
+//modifier
 	public void setNums(int dist, int hrs, int mins)
 	{
+		distance = dist;
+		hours = hrs;
+		minutes = mins;
 	}
-
+//function
 	public void calcMPH()
 	{
+		mph = (distance)/(hours+(minutes/60.0)); 
 	}
 
 	public void print()
 	{
+		System.out.println(distance + " miles in " + hours + " hours and " + minutes + " minutes = " + mph + "MPH.");
 	}
 	
 	//create a print or toString or both

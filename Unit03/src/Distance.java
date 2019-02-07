@@ -29,15 +29,16 @@ public class Distance
 	{
 
 		setCoordinates(x1, y1, x2, y2);
-		distance = 0.0;
+		
 	}
 //setter or modifier
 	public void setCoordinates(int x1, int y1, int x2, int y2)
 	{
-		x1=xOne;
-		y1=yOne;
-		x2=xTwo;
-		y2=yTwo;	
+		xOne=x1;
+		xTwo=x2;
+		yOne=y1;
+		yTwo=y2;
+		
 	}
 //function or calculator
 	public void calcDistance()
@@ -54,6 +55,6 @@ public class Distance
 
 	public String toString()
 	{
-		return "distance == " + getDistance();
+		return "distance = " + getDistance();
 	}
 }
