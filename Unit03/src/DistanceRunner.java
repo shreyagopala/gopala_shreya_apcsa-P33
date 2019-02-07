@@ -24,11 +24,8 @@ public class DistanceRunner
 		out.println("Enter Y2 :: ");
 		int y2 = keyboard.nextInt();
 		
-	//	Distance test = new Distance();
-	
-		Distance test =new Distance(x1,x2,y1,y2);
-		
-		//test.setCoordinates(x1, y1, x2, y2);
+		Distance test = new Distance();
+		test.setCoordinates(x1, y1, x2, y2);
 		test.calcDistance();
 		out.println( test );
 		
