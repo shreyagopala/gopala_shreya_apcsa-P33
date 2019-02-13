@@ -8,6 +8,8 @@ public class TriangleOneRunner
 {
 	public static void main ( String[] args )
 	{
-		//add test cases		
+		TriangleOne test = new TriangleOne();
+		test.setWord("hippo");
+		out.println(test);
 	}
 }
