@@ -11,5 +11,14 @@ public class TriangleOneRunner
 		TriangleOne test = new TriangleOne();
 		test.setWord("hippo");
 		out.println(test);
+		
+		test.setWord("abcde");
+		out.println(test);
+		
+		test.setWord("it");
+		out.println(test);
+		
+		test.setWord("hippo");
+		out.println(test);
 	}
 }
