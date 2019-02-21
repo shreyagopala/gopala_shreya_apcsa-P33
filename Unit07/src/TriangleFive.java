@@ -34,7 +34,14 @@ public class TriangleFive
 	public String toString()
 	{
 		String output="";
-		for (int i = 0; i <= amount; i++)
+		while (amount > 0) {
+			for (int i = amount; i>=0; i--) {
+				output += letter;
+			} 
+			output+=" ";
+			letter += 1;
+			amount -= 1;
+		}
 			
 		return output;
 	}
