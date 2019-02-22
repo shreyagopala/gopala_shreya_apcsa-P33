@@ -7,8 +7,6 @@ public class RayOddToEven
 {
 	public int go(int[] ray)
 	{
-		int odd = 0;
-		int even = 0;
 		int oddIndex = 0;
 		int evenIndex = 0;
 		boolean foundOdd = false;
@@ -25,7 +23,6 @@ public class RayOddToEven
 			}
 			else //this means the number is odd
 			{
-				odd = ray[i];
 				oddIndex = i;
 				foundOdd = true;
 				break;
@@ -38,7 +35,6 @@ public class RayOddToEven
 		{
 			if (ray[j]%2 == 0) 
 			{
-				even = ray[j];
 				evenIndex = j;
 				foundEven = true;
 				break;

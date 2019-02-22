@@ -5,14 +5,16 @@
 
 public class RaySumLast
 {
-	public static int go(int[] ray)
+	public int go(int[] ray)
 	{
 		if (ray.length == 0) return -1;
-		int val = ray[ray.length -1];
+		
+		int lastVal = ray[ray.length -1];
 		int sum = 0;
+		
 		for (int i = 0; i <ray.length - 1; i++)
 		{
-			if (ray[i] > val) sum += ray[i];
+			if (ray[i] > lastVal) sum += ray[i];
 		}
 		if (sum==0) return -1;
 		else return sum;

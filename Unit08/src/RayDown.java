@@ -5,10 +5,15 @@
 
 public class RayDown
 {
-	//go() will return true if all numbers in numArray
-	//are in decreasing order [31,12,6,2,1]
-	public static boolean go(int[] numArray)
+	//go() will return true if all numbers in numArray are in decreasing order [31,12,6,2,1]
+	public boolean go(int[] nums)
 	{
-		return true;
+		boolean isDecreasing = false;
+		for (int i = 1; i < nums.length; i++)
+		{
+			if (nums[i-1] > nums[i]) isDecreasing = true;
+			else break;
+		}
+		return isDecreasing;
 	}	
 }
