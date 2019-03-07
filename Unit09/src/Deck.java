@@ -30,11 +30,13 @@ public class Deck {
 	 * @param values is an array containing all of the card point values.
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
+		cards = new ArrayList<Card>();
 		for(int i = 0; i < ranks.length; i++){
 	          size++;
 	          Card addCard = new Card(ranks[i], suits[i], values[i]);
 	          cards.add(addCard);
 	}
+		shuffle();
 	}
 	/**
 	 * Determines if this deck is empty (no undealt cards).
@@ -58,7 +60,14 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		size = 0;
+		for( int k = size - 1; k >= 0; k-- ) {
+            int r = (int)(Math.random() * k);
+            Card tmp = cards.get(r);
+            cards.set(r, cards.get(k));
+            cards.set(k, tmp);
+
+	}
 	}
 
 	/**
