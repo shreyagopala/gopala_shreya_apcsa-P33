@@ -11,6 +11,7 @@ import static java.lang.System.*;
 public class ToyStore
 {
 	private ArrayList<Toy> toyList;
+	private int countNum;
 
 	public ToyStore()
 	{
@@ -31,7 +32,13 @@ public class ToyStore
   
   	public int getThatToy( String nm )
   	{
-  		int countNum = 0;
+  		countNum = 0;
+  		//Toy[] toyArray = new Toy[toyList.size()];
+  		//toyArray = toyList.toArray(toyArray);
+  		//for (int i = 0; i < toyArray.length; i++)
+  		//{
+  			//if (toyArray[i].getName().equals(nm)) countNum++;
+  		//}
   		for (Toy x : toyList)
   		{
   			if (x.getName().contentEquals(nm)) countNum++;
@@ -48,25 +55,27 @@ public class ToyStore
   	{
   		for (Toy t : toyList)
   		{
-  			out.println(t);
-  			if (getThatToy(t.getName()) > 1)
+  			out.println(t.getName());
+  			out.println(t.getCount());
+  			//if (getThatToy(t.getName()) > 1)
+  			if (countNum > 1)
   			{
-  				t.setCount(getThatToy(t.getName()));
   				int firstIndex = toyList.indexOf(t) + 1;
   				for (int i = firstIndex; i < toyList.size(); i++)
   				{
   					String toyName = t.getName();
   					String arrayToyName = toyList.get(i).getName();
-  					out.println(toyName);
-  					out.println(arrayToyName);
   					if (toyName.equals(arrayToyName)) 
   						{
   						toyList.remove(i);
   						}
   				}
+  				t.setCount(getThatToy(t.getName()));
   			}
-  			else if (getThatToy(t.getName()) == 1) t.setCount(1);
+  			//else if (getThatToy(t.getName()) == 1) t.setCount(1);
+  			else if (countNum == 1) t.setCount(1);
   		}
+
   	}  
   	  
 	public String toString()
