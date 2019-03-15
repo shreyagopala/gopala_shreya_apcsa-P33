@@ -30,7 +30,7 @@ public class Doggies
 	public String getNameOfOldest()
 	{
 		Dog oldest;
-		int age = ;
+		int age = Integer.MAX_VALUE;
 		
 		for (Dog d : pups)
 		{
@@ -46,7 +46,7 @@ public class Doggies
 	public String getNameOfYoungest()
 	{
 		Dog youngest;
-		int age = ;
+		int age = Integer.MIN_VALUE;
 		
 		for (Dog d : pups)
 		{
