@@ -10,11 +10,17 @@ public class Word implements Comparable<Word>
 
 	public Word( String s )
 	{
+		word = s;
 	}
-
-	public int compareTo( Word rhs )
-	{		
-		return 0;
+	
+	
+	public int compareTo(Word rhs)
+	{	
+		int ret = 0;
+		if (word.length() == rhs.word.length()) ret = word.compareTo(rhs.word);
+		else if (word.length() > rhs.word.length()) ret = 1;
+		else if (word.length() < rhs.word.length()) ret = -1;
+		return ret;
 	}
 
 	public String toString()
