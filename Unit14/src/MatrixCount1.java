@@ -13,9 +13,14 @@ public class MatrixCount1
     										{ 6, 7, 8, 9, 0},
     										{ 5, 4, 3, 2, 1}};
 
-    public static int count( int val  )
+    public void count( int val  )
     {
-		//add code
-		return 0;
+    	int count = 0;
+		for (int i =  0; i < m.length; i++) {
+			for (int j = 0; j < m[i].length; j++) {
+			if (m[i][j] == val) count++;
+		}
     }
+		System.out.println(count);
+}
 }
