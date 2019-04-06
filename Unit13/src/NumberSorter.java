@@ -12,15 +12,24 @@ public class NumberSorter
 {
 	//instance variables and other methods not shown
 
-	private static int getNumDigits(int number)
-	{
+	private static int getNumDigits(int number) {
 		int count = 0;
+		while (number > 0) {
+			number /= 10;
+			count++;
+		}
 		return count;
 	}
 
-	public static int[] getSortedDigitArray(int number)
-	{
-		int[] sorted = null;
+	public static int[] getSortedDigitArray(int number) {
+		int[] sorted = new int[getNumDigits(number)];
+		byte index = (byte) (sorted.length - 1);
+		while (number > 0) {
+			sorted[index] = number % 10;
+			index--;s
+			number /= 10;
+		}
+		Arrays.sort(sorted);
 		return sorted;
 	}
 }
