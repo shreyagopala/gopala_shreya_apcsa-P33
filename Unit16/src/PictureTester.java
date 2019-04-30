@@ -14,7 +14,7 @@ public class PictureTester
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
-    Picture beach = new Picture("/Users/helencho/Documents/GitHub/Cho_Helen_apcsa_p33/Unit16/src/images/beach.jpg");
+    Picture beach = new Picture("src/images/beach.jpg");
     beach.explore();
     beach.zeroBlue();
     beach.explore();
@@ -23,7 +23,7 @@ public class PictureTester
   /** Method to test keepOnlyBlue */
   public static void testKeepOnlyBlue()
   {
-	  Picture beach = new Picture("/Users/helencho/Documents/GitHub/Cho_Helen_apcsa_p33/Unit16/src/images/beach.jpg");
+	  Picture beach = new Picture("src/images/beach.jpg");
 	  beach.explore();
 	  beach.keepOnlyBlue();
 	  beach.explore();
@@ -32,7 +32,7 @@ public class PictureTester
   /** Method to test keepOnlyRed */
   public static void testKeepOnlyRed()
   {
-	  Picture beach = new Picture("/Users/helencho/Documents/GitHub/Cho_Helen_apcsa_p33/Unit16/src/images/beach.jpg");
+	  Picture beach = new Picture("src/images/beach.jpg");
 	  beach.explore();
 	  beach.keepOnlyRed();
 	  beach.explore();
@@ -41,7 +41,7 @@ public class PictureTester
   /** Method to test keepOnlyGreen */
   public static void testKeepOnlyGreen()
   {
-	  Picture beach = new Picture("/Users/helencho/Documents/GitHub/Cho_Helen_apcsa_p33/Unit16/src/images/beach.jpg");
+	  Picture beach = new Picture("src/images/beach.jpg");
 	  beach.explore();
 	  beach.keepOnlyGreen();
 	  beach.explore();
@@ -50,7 +50,7 @@ public class PictureTester
   /** Method to test negate */
   public static void testNegate()
   {
-	  Picture beach = new Picture("/Users/helencho/Documents/GitHub/Cho_Helen_apcsa_p33/Unit16/src/images/beach.jpg");
+	  Picture beach = new Picture("src/images/beach.jpg");
 	  beach.explore();
 	  beach.negate();
 	  beach.explore();
@@ -59,7 +59,7 @@ public class PictureTester
   /** Method to test grayscale */
   public static void testGrayscale()
   {
-	  Picture beach = new Picture("/Users/helencho/Documents/GitHub/Cho_Helen_apcsa_p33/Unit16/src/images/beach.jpg");
+	  Picture beach = new Picture("src/images/beach.jpg");
 	  beach.explore();
 	  beach.grayscale();
 	  beach.explore();
@@ -68,7 +68,7 @@ public class PictureTester
   /** Method to test fixUnderwater */
   public static void testFixUnderwater()
   {
-	  Picture water = new Picture("/Users/helencho/Documents/GitHub/Cho_Helen_apcsa_p33/Unit16/src/images/water.jpg");
+	  Picture water = new Picture("src/images/water.jpg");
 	  water.explore();
 	  water.fixUnderwater();
 	  water.explore();
@@ -77,7 +77,7 @@ public class PictureTester
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("/Users/helencho/Documents/GitHub/Cho_Helen_apcsa_p33/Unit16/src/images/caterpillar.jpg");
+    Picture caterpillar = new Picture("src/images/caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
@@ -113,7 +113,7 @@ public class PictureTester
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
-    Picture temple = new Picture("/Users/helencho/Documents/GitHub/Cho_Helen_apcsa_p33/Unit16/src/images/temple.jpg");
+    Picture temple = new Picture("src/images/temple.jpg");
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
@@ -139,7 +139,7 @@ public class PictureTester
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("/Users/helencho/Documents/GitHub/Cho_Helen_apcsa_p33/Unit16/src/images/640x480.jpg");
+    Picture canvas = new Picture("src/images/640x480.jpg");
     canvas.createCollage();
     canvas.explore();
   }
@@ -161,7 +161,7 @@ public class PictureTester
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
-    Picture swan = new Picture("/Users/helencho/Documents/GitHub/Cho_Helen_apcsa_p33/Unit16/src/images/swan.jpg");
+    Picture swan = new Picture("src/images/swan.jpg");
     swan.explore();
     swan.edgeDetection(10);
     swan.explore();
@@ -174,6 +174,15 @@ public class PictureTester
 	  swan.edgeDetection2(10);
 	  swan.explore();
   }
+  public static void testChromakey()
+  {
+    	Picture mark = new Picture("src/images/blue-mark.jpg");
+    	Picture moon = new Picture("src/images/moon-surface.jpg");
+    	mark.chromakey(moon);  //replace blue pixels in mark with pixels in moon
+   	mark.explore();
+  }
+ 
+
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -199,9 +208,9 @@ public class PictureTester
     //testCollage();
     //testCopy();
     //testMyCollage();
-    testEdgeDetection();
-    testEdgeDetection2();
-    //testChromakey();
+    //testEdgeDetection();
+    //testEdgeDetection2();
+    testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
     //testSetRedToHalfValueInTopHalf();

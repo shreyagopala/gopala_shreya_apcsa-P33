@@ -513,9 +513,28 @@ public class Picture extends SimplePicture
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
+  public void chromakey(Picture newBack) {
+	  System.out.println("Shreya, Period 3, 4/29/19, CA-SU-F101-09");
+	  Pixel[][] pixels = this.getPixels2D();
+		Color newColor = null;
+	  for (int row = 0; row < pixels.length; row++)
+		{
+		  for (int col = 0; col < pixels[0].length-1; col++)
+		  {
+			  if (pixels[row][col].getBlue() > pixels[row][col].getBlue()) {
+				  int red = newBack.getPixel(col, row).getRed();
+				  int green = newBack.getPixel(col, row).getGreen();
+				  int blue = newBack.getPixel(col, row).getBlue();
+				  newColor = new Color(red, green, blue);
+				  pixels[row][col].setColor(newColor);
+			  }
+			  
+		  }
+  }
+  }
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("/Users/helencho/Documents/GitHub/Cho_Helen_apcsa_p33/Unit16/src/images/beach.jpg");
+    Picture beach = new Picture("src/images/beach.jpg");
     beach.explore();
     beach.zeroBlue();
     beach.explore();
