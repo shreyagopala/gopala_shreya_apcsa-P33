@@ -173,6 +173,8 @@ public class BreakOut extends Canvas implements KeyListener, Runnable
 			}		
 		}
 		
+			//collides on corner
+		
 		//see if the paddles need to be moved
 		if(keys[0]) paddle.moveUpAndDraw(graphToBack); //need to use graphToBack instead of window 
 		if(keys[1]) paddle.moveDownAndDraw(graphToBack);
