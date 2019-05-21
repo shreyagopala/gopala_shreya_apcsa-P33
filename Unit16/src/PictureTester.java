@@ -182,6 +182,21 @@ public class PictureTester
    	mark.explore();
   }
  
+  public static void testExampleED() {
+	  Picture beach = new Picture("src/images/beach.jpg");
+	  Picture message  = new Picture("src/images/apple_icon.jpg");
+	  beach.exampleEncode(message);
+	  beach.explore();
+	  beach.exampleDecode().explore();
+  }
+  public static void testEncodeDecode()
+  {
+	  Picture beach = new Picture("src/images/beach.jpg");
+	  Picture message  = new Picture("src/images/apple_icon.jpg");
+	  beach.encode(message);
+	  beach.explore();
+	  beach.decode().explore();
+  }
 
   
   /** Main method for testing.  Every class can have a main
@@ -191,6 +206,10 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
+	  Picture beach = new Picture("src/images/beach.jpg");
+	  beach.explore();
+	  testExampleED();
+	//testEncodeDecode();
     //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
@@ -210,7 +229,7 @@ public class PictureTester
     //testMyCollage();
     //testEdgeDetection();
     //testEdgeDetection2();
-    testChromakey();
+    //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
     //testSetRedToHalfValueInTopHalf();

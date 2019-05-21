@@ -76,6 +76,122 @@ public class Picture extends SimplePicture
    * @return a string with information about the picture such as fileName,
    * height and width.
    */
+  public void exampleEncode(Picture messagePict)
+  {
+	  Pixel[][] messagePixels = messagePict.getPixels2D();
+	  Pixel[][] currPixels = this.getPixels2D();
+	  Pixel currPixel = null;
+	  Pixel messagePixel = null;
+	  int count = 0;
+	  	for (int row = 0; row < this.getHeight(); row++)
+	  		{
+	  			for (int col = 0; col < this.getWidth(); col++)
+	  			{
+	  				// if the current pixel red is odd make it even
+	  				currPixel = currPixels[row][col];
+	  				if (currPixel.getRed() % 2 == 1)
+	  					currPixel.setRed(currPixel.getRed() - 1);
+	  				messagePixel = messagePixels[row][col];
+	  				if (messagePixel.colorDistance(Color.BLACK) < 50)
+	  				{
+	  					currPixel.setRed(currPixel.getRed() + 1);
+	  					count++;
+	  				}
+	  			}
+	  		}
+	  	System.out.println(count);
+  	}
+  
+  public void encode(Picture messagePic)
+  {
+	  Pixel[][] currentPixels = this.getPixels2D();
+	  Pixel[][] messagePixels = messagePic.getPixels2D();
+	  Pixel current = null;
+	  Pixel above = null;
+	  Pixel message = null;
+	  for (int row=0; row < messagePixels.length && row<currentPixels.length-1; row++)
+	  {
+		  for (int col=0; col<messagePixels[0].length && col<currentPixels[0].length-1; col++)
+		  {
+			  current = currentPixels[row][col];
+			  above = currentPixels[row][col+1];
+			  message = messagePixels[row][col];
+			  if (message.colorDistance(Color.BLACK)<50) 
+			  {
+				  if ((current.getRed()+current.getGreen()+current.getBlue())%2 != (above.getRed()+above.getGreen()+above.getBlue())%2)
+				  {
+					  above.setRed(above.getRed()+1);
+				  }
+			  }
+			  else
+			  {
+				  if ((current.getRed()+current.getGreen()+current.getBlue())%2 == (above.getRed()+above.getGreen()+above.getBlue())%2)
+				  {
+					  above.setRed(above.getRed()+1);
+				  }
+			  }
+		  }
+	  }
+  }
+  
+  public Picture exampleDecode()
+  	{
+	  Pixel[][] pixels = this.getPixels2D();
+	  int height = this.getHeight();
+	  int width = this.getWidth();
+	  Pixel currPixel = null;
+
+	  Pixel messagePixel = null;
+	  Picture messagePicture = new Picture(height,width);
+	  Pixel[][] messagePixels = messagePicture.getPixels2D();
+	  int count = 0;
+	  for (int row = 0; row < this.getHeight(); row++)
+	  {
+		  for (int col = 0; col < this.getWidth(); col++)
+		  {
+			  currPixel = pixels[row][col];
+			  messagePixel = messagePixels[row][col];
+			  if (currPixel.getRed() % 2 == 1)
+			  {
+				  messagePixel.setColor(Color.BLACK);
+				  count++;
+			  }
+		  }
+	  }
+	  System.out.println(count);
+	  return messagePicture;
+  }
+  
+  public Picture decode()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  int height = this.getHeight();
+	  int width = this.getWidth();
+	  Pixel currPixel = null;
+	  Pixel botPixel = null;
+	  Pixel messagePixel = null;
+	  Picture messagePicture = new Picture(height-1,width-1);
+	  Pixel[][] messagePixels = messagePicture.getPixels2D();
+	  for (int row = 0; row < this.getHeight()-1; row++)
+	  {
+		  for (int col = 0; col < this.getWidth()-1; col++)
+		  {
+			  currPixel = pixels[row][col];
+			  botPixel = pixels[row][col+1];
+			  messagePixel = messagePixels[row][col];
+			  if ((currPixel.getRed() + currPixel.getBlue() + currPixel.getGreen())%2 == (botPixel.getRed() + botPixel.getBlue() + botPixel.getGreen())%2)
+			  {
+				  messagePixel.setColor(Color.BLACK);
+			  }
+			  else
+			  {
+				  messagePixel.setColor(Color.WHITE);
+			  }
+		  }
+	  }
+	  return messagePicture;
+  }
+  
   public String toString()
   {
     String output = "Picture, filename " + getFileName() + 
